@@ -104,11 +104,20 @@ raprock/
 - Observatory code "500" = geocenter (for testing)
 - Time range in example: 2026-02-24 to 2026-03-25, 1-hour intervals
 
+## Code Style Preferences
+
+**Comments**: Use sparingly. Prioritize clear, self-documenting code. Only add comments when:
+- Code clarity cannot be achieved through better naming/structure
+- Explaining _why_ something is done (not what)
+- Warning about pesky passages that should be improved later
+
+Do not comment obvious operations or repeat what the code already says.
+
 ## Development Status
 
 - [x] Ephemeris retrieval working
-- [ ] NEO list scraping
-- [ ] Ephemeris parsing
+- [x] NEO list scraping (get_neocp_objects)
+- [x] Ephemeris parsing (parse_ephemeris)
 - [ ] Observatory configuration
 - [ ] Visibility calculations
 - [ ] Opportunity detection

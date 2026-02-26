@@ -1,0 +1,6 @@
+                       Equatorial coordinates                                                                                                          App. motion                                     
+    Date      Hour       RA            DEC       Mag   Alt   Azi. Airmass   Sun    SolEl Lun.El Lun.Ph  Phase Glat  Glon     R     Delta   RA*cosDE     DEC       Vel     PA        Sky plane error    
+             (UTC)    h  m  s        d  '  "          (deg) (deg)           elev.  (deg)  (deg)  (deg)  (deg) (deg) (deg)   (au)    (au)     "/min     "/min     "/min   deg      Err1      Err2    PA 
+ =========== =====  =============  ============ ===== ===== ===== ======== ====== ====== ====== ====== ====== ===== ===== ======= =======  ========  ========  ======== =====  ========  ======== =====
+  Impact after the initial conditions
+  Ephemerides not computed because of an impact

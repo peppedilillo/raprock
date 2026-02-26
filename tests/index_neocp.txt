@@ -1,0 +1,2730 @@
+<!--
+    !-----------------------------------------------------------!
+    ! PAGE: NEOScan results on NEOCP                            !
+    !-----------------------------------------------------------!
+    ! HTML page containing the main table of the NEOScan        !
+    ! results on the NEOCP.                                     !
+    !                                                           !
+    ! Author: A. Del Vigna                                      !
+    !                                                           !
+    ! © Copyright SpaceDyS, 2020                                !
+    !-----------------------------------------------------------!
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+    <title>NEOCP Scan | NEOScan</title>
+    <!-- Styles -->
+    <link media="screen" type="text/css" href="../css/persistent_main.css" rel="stylesheet"></link>
+    <link media="screen" type="text/css" href="../css/persistent_main_tables.css" rel="stylesheet"></link>
+    <link media="screen" title="fsm-csd" type="text/css" href="../css/font-sizes/m_main.css" rel="stylesheet"></link>
+    <link media="screen" title="fsm-csd" type="text/css" href="../css/font-sizes/m_main_tables.css" rel="stylesheet"></link>
+    <link media="screen" title="fsm-csd" type="text/css" href="../css/color-schemes/d_main_tables.css" rel="stylesheet"></link>
+    <!-- Javascript -->
+    <script src="../javascript/neodys/cookies.js" type="text/javascript"></script>
+    <script src="../javascript/neodys/basicTools.js" type="text/javascript"></script>
+    <script src="../javascript/neodys/common.js" type="text/javascript"></script>
+    <script src="../javascript/neodys/TableSort.js" type="text/javascript"></script>
+    <script src="../javascript/neodys/jQuery.js" type="text/javascript"></script>
+    <script src="../javascript/WebBuilder.js" type="text/javascript"></script>
+    <script src="../javascript/SectionAdmin.js" type="text/javascript"></script>
+    <!-- Common parts -->
+    <script>
+      $(function(){
+      $("#top-menu").load("../html/NEOScan/common/top-menu.html");
+      $("#top-banner").load("../html/NEOScan/common/top-banner.html");
+      $("#bottom-banner").load("../html/NEOScan/common/bottom-banner.html");
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="background"> </div>
+    <!--
+	!--------------!
+	! Common parts !
+	!--------------!
+    -->
+    <div id="top-banner"></div>
+    <div id="bottom-banner"></div>
+    <div id="top-menu"></div>
+    <!--
+	!------------!
+	! Main table !
+	!------------!
+    -->
+    <div id="pageTitle"> NEOCP SCAN </div>
+
+    <div id="mainContent1">
+      <div class="qContainer">
+<p style="text-align:right">Last Update: 2026-02-26 11:35 UTC</p>
+<p style="text-align:left">Number of objects: <b>133</b></p>
+<p style="text-align:center" >The ephemerides provided in the below table are referred to <b>2026-02-27 00:00 UTC
+</b></p>
+
+	<table class="simple hcentered" id="Main">
+	  <thead>
+	    <tr align="center">
+	      <th width="50"                                                       ><a onclick="sortTable('Main',1,'cha')" >NEOCP name        <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="50"                                                       ><a onclick="sortTable('Main',2,'num')" >Numb. of obs.    <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="70"                                                       ><a onclick="sortTable('Main',3,'num')" >Arc length (h)    <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="50" title="Right ascension"                               ><a onclick="sortTable('Main',4,'cha')" >RA (hh:mm)        <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="50" title="Declination"                                   ><a onclick="sortTable('Main',5,'ang')" >DEC (deg)         <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="35" title="Visual magnitude"                              ><a onclick="sortTable('Main',6,'num')" >V                 <br/><img class="singleline" width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="55" title="Apparent motion"                               ><a onclick="sortTable('Main',7,'num')" >Rate (''/min)     <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="50" title="Sun elongation"                                ><a onclick="sortTable('Main',8,'num')" >Sun el. (deg)  <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+ 	      <th width="40" title="Residuals RMS of the best fitting orbit"       ><a onclick="sortTable('Main',9,'num')" >RMS               <br/><img class="singleline" width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="40" title="Abs. magnitude of the best fitting orbit"      ><a onclick="sortTable('Main',10,'num')">H                 <br/><img class="singleline" width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="50" title="MOID of the best fitting orbit"                ><a onclick="sortTable('Main',11,'num')">MOID (au)         <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="55" title="Closest app. dist. of the best fitting orbit"  ><a onclick="sortTable('Main',12,'num')">CA dist. (LD)     <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="50" title="Velocity at infinity of the best fitting orbit"><a onclick="sortTable('Main',13,'num')">V_inf (km/s)      <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="15" title="Probability of being an NEO"                   ><a onclick="sortTable('Main',14,'num')">NEO score         <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="15" title="Probability of being an MBO"                   ><a onclick="sortTable('Main',15,'num')">MBO score         <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="15" title="Probability of being a PHA"                    ><a onclick="sortTable('Main',16,'num')">PHA score         <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="15" title="Probability of being on an Earth-bounded orbit"><a onclick="sortTable('Main',17,'num')">Geoc. score       <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="15"                                                       ><a onclick="sortTable('Main',18,'num')">Impact flag       <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="25" title="Significant case"                              ><a onclick="sortTable('Main',19,'cha')">Signif. flag      <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="25" title="Presence in Possible Comet Confirmation Page"  ><a onclick="sortTable('Main',20,'cha')">in PCCP           <br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="105"                                                      ><a onclick="sortTable('Main',21,'cha')">Last Updated (UTC)<br/><img width="15px" src="../images/sort_symbol.png"></img></a></th>
+	      <th width="20"><a title="Go to object observation tools"                                                     >Obs. tools        <br/></a></th>
+	    </tr>
+	  </thead>
+	  <!-- #CONTENT -->
+<tr align="center">
+<td><a href="scan_neocp/X89330/index_summary_X89330.html">X89330</a></td>
+<td>3</td>
+<td>0.68</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>0.625</td>
+<td>32.76</td>
+<td>0.0000267</td>
+<td>0.01</td>
+<td>53.10</td>
+<td>0.59</td>
+<td>0.08</td>
+<td>0.38</td>
+<td>0.001</td>
+<td>2
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-20 15:21
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=X89330"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/oDM0265/index_summary_oDM0265.html">oDM0265</a></td>
+<td>9</td>
+<td>0.40</td>
+<td>21:38</td>
+<td>-04° 58'</td>
+<td>35.2</td>
+<td>0.9093</td>
+<td>15.3</td>
+<td>0.137</td>
+<td>31.44</td>
+<td>0.0001182</td>
+<td>0.06</td>
+<td>16.28</td>
+<td>0.88</td>
+<td>0.04</td>
+<td>0.02</td>
+<td>0.000</td>
+<td>2
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 03:46
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=oDM0265"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE8GYY2/index_summary_CE8GYY2.html">CE8GYY2</a></td>
+<td>4</td>
+<td>0.37</td>
+<td>00:39</td>
+<td>-07° 54'</td>
+<td>32.4</td>
+<td>0.0436</td>
+<td>-29.8</td>
+<td>0.864</td>
+<td>30.00</td>
+<td>0.0000079</td>
+<td>0.02</td>
+<td>45.87</td>
+<td>0.71</td>
+<td>0.10</td>
+<td>0.03</td>
+<td>0.000</td>
+<td>1
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-23 11:29
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE8GYY2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/MOK0002/index_summary_MOK0002.html">MOK0002</a></td>
+<td>3</td>
+<td>0.23</td>
+<td>08:41</td>
+<td>+56° 46'</td>
+<td>18.4</td>
+<td>0.4582</td>
+<td>-126.6</td>
+<td>0.152</td>
+<td>16.93</td>
+<td>0.5526983</td>
+<td>0.00</td>
+<td></td>
+<td>0.76</td>
+<td>0.02</td>
+<td>0.28</td>
+<td>0.001</td>
+<td>1
+</td>
+<td align="center"> F </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:41
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=MOK0002"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ZTF10BB/index_summary_ZTF10BB.html">ZTF10BB</a></td>
+<td>10</td>
+<td>24.63</td>
+<td>20:27</td>
+<td>+25° 43'</td>
+<td>27.3</td>
+<td>0.6111</td>
+<td>46.8</td>
+<td>0.810</td>
+<td>25.61</td>
+<td>0.0012304</td>
+<td>2.63</td>
+<td>28.74</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-04 17:51
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ZTF10BB"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ST26B47/index_summary_ST26B47.html">ST26B47</a></td>
+<td>11</td>
+<td>1.36</td>
+<td>22:40</td>
+<td>+00° 34'</td>
+<td>40.5</td>
+<td>2.2859</td>
+<td>-9.1</td>
+<td>0.967</td>
+<td>31.78</td>
+<td>0.0007443</td>
+<td>0.28</td>
+<td>8.88</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-23 17:18
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ST26B47"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CNHF5/index_summary_C1CNHF5.html">C1CNHF5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>11:03</td>
+<td>+17° 22'</td>
+<td>22.8</td>
+<td>2.0751</td>
+<td>169.4</td>
+<td>0.664</td>
+<td>29.60</td>
+<td>0.0015715</td>
+<td>0.03</td>
+<td>15.54</td>
+<td>0.92</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 10:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CNHF5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22m9sS/index_summary_P22m9sS.html">P22m9sS</a></td>
+<td>7</td>
+<td>19.99</td>
+<td>13:00</td>
+<td>-08° 46'</td>
+<td>21.5</td>
+<td>2.0816</td>
+<td>140.8</td>
+<td>0.696</td>
+<td>26.59</td>
+<td>0.0031374</td>
+<td>1</td>
+<td>8.87</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 09:55
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22m9sS"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22m6bg/index_summary_P22m6bg.html">P22m6bg</a></td>
+<td>9</td>
+<td>19.43</td>
+<td>12:25</td>
+<td>+19° 21'</td>
+<td>21.4</td>
+<td>4.0322</td>
+<td>152.0</td>
+<td>0.525</td>
+<td>24.85</td>
+<td>0.0445179</td>
+<td>31.02</td>
+<td>3.77</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 05:58
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22m6bg"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22lUn6/index_summary_P22lUn6.html">P22lUn6</a></td>
+<td>18</td>
+<td>119.32</td>
+<td>10:41</td>
+<td>+19° 16'</td>
+<td>22.0</td>
+<td>0.3298</td>
+<td>-169.3</td>
+<td>0.701</td>
+<td>15.10</td>
+<td>3.6029674</td>
+<td>1</td>
+<td></td>
+<td>0.00</td>
+<td>0.41</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 09:30
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22lUn6"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CLXN5/index_summary_C1CLXN5.html">C1CLXN5</a></td>
+<td>8</td>
+<td>4.17</td>
+<td>10:26</td>
+<td>+33° 53'</td>
+<td>22.7</td>
+<td>3.3331</td>
+<td>-154.5</td>
+<td>0.333</td>
+<td>26.47</td>
+<td>0.0259999</td>
+<td>16.20</td>
+<td>8.14</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:20
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CLXN5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ST26B25/index_summary_ST26B25.html">ST26B25</a></td>
+<td>13</td>
+<td>29.87</td>
+<td>22:23</td>
+<td>+08° 13'</td>
+<td>35.4</td>
+<td>0.7734</td>
+<td>-17.2</td>
+<td>0.820</td>
+<td>30.00</td>
+<td>0.0020234</td>
+<td>1.66</td>
+<td>6.20</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-11 22:28
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ST26B25"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CC4M5/index_summary_C1CC4M5.html">C1CC4M5</a></td>
+<td>7</td>
+<td>2.58</td>
+<td>09:55</td>
+<td>-02° 32'</td>
+<td>23.1</td>
+<td>0.9091</td>
+<td>-164.5</td>
+<td>0.580</td>
+<td>17.94</td>
+<td>0.9274371</td>
+<td>0.00</td>
+<td>42.46</td>
+<td>0.54</td>
+<td>0.21</td>
+<td>0.05</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 19:10
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CC4M5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CLAP5/index_summary_C1CLAP5.html">C1CLAP5</a></td>
+<td>8</td>
+<td>1.45</td>
+<td>09:07</td>
+<td>+39° 06'</td>
+<td>20.2</td>
+<td>31.2707</td>
+<td>-143.3</td>
+<td>0.863</td>
+<td>27.22</td>
+<td>0.0155952</td>
+<td>6.88</td>
+<td>8.37</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CLAP5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/MDO8869/index_summary_MDO8869.html">MDO8869</a></td>
+<td>6</td>
+<td>313.42</td>
+<td>10:51</td>
+<td>+03° 29'</td>
+<td>21.7</td>
+<td>0.3371</td>
+<td>174.1</td>
+<td>0.146</td>
+<td>14.95</td>
+<td>4.0048966</td>
+<td>1</td>
+<td></td>
+<td>0.00</td>
+<td>0.87</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 09:56
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=MDO8869"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CM1F5/index_summary_C1CM1F5.html">C1CM1F5</a></td>
+<td>8</td>
+<td>1.96</td>
+<td>10:24</td>
+<td>+35° 43'</td>
+<td>21.8</td>
+<td>1.5394</td>
+<td>-152.6</td>
+<td>0.410</td>
+<td>22.10</td>
+<td>0.0815397</td>
+<td>0.74</td>
+<td>31.38</td>
+<td>0.69</td>
+<td>0.12</td>
+<td>0.04</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 09:11
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CM1F5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C45X7N1/index_summary_C45X7N1.html">C45X7N1</a></td>
+<td>3</td>
+<td>0.11</td>
+<td>07:08</td>
+<td>+13° 22'</td>
+<td>18.0</td>
+<td>161.4892</td>
+<td>-128.2</td>
+<td>0.035</td>
+<td>32.26</td>
+<td>0.0001069</td>
+<td>0.02</td>
+<td>2.24</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.018</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 10:08
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C45X7N1"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1AZHH5/index_summary_C1AZHH5.html">C1AZHH5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>09:05</td>
+<td>+50° 15'</td>
+<td>23.7</td>
+<td>1.1726</td>
+<td>-134.0</td>
+<td>1.216</td>
+<td>22.37</td>
+<td>0.1839599</td>
+<td>0.09</td>
+<td>5.96</td>
+<td>0.89</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-20 13:18
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1AZHH5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/PDO0100/index_summary_PDO0100.html">PDO0100</a></td>
+<td>3</td>
+<td>0.98</td>
+<td>10:24</td>
+<td>+09° 51'</td>
+<td>20.5</td>
+<td>5.8988</td>
+<td>-176.3</td>
+<td>0.003</td>
+<td>23.04</td>
+<td>0.0120317</td>
+<td>46.04</td>
+<td>31.93</td>
+<td>0.77</td>
+<td>0.07</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-21 19:11
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=PDO0100"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C45X4T1/index_summary_C45X4T1.html">C45X4T1</a></td>
+<td>7</td>
+<td>1.81</td>
+<td>11:33</td>
+<td>+32° 58'</td>
+<td>18.3</td>
+<td>45.3553</td>
+<td>152.5</td>
+<td>0.752</td>
+<td>25.64</td>
+<td>0.0121213</td>
+<td>1</td>
+<td>15.50</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 08:31
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C45X4T1"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/A11yCiF/index_summary_A11yCiF.html">A11yCiF</a></td>
+<td>4</td>
+<td>0.86</td>
+<td>21:17</td>
+<td>-07° 16'</td>
+<td>33.2</td>
+<td>0.5645</td>
+<td>20.1</td>
+<td>0.228</td>
+<td>29.07</td>
+<td>0.0007275</td>
+<td>0.39</td>
+<td>17.84</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-21 20:47
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=A11yCiF"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12lwY3/index_summary_P12lwY3.html">P12lwY3</a></td>
+<td>83</td>
+<td>656.75</td>
+<td>10:44</td>
+<td>+01° 29'</td>
+<td>19.9</td>
+<td>0.4969</td>
+<td>172.8</td>
+<td>0.433</td>
+<td>16.57</td>
+<td>1.4330649</td>
+<td>1</td>
+<td></td>
+<td>0.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">T</td>
+<td align="center">2026-02-26 07:24
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12lwY3"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12lFxz/index_summary_P12lFxz.html">P12lFxz</a></td>
+<td>3</td>
+<td>0.57</td>
+<td>10:39</td>
+<td>-18° 16'</td>
+<td>21.8</td>
+<td>4.8251</td>
+<td>153.2</td>
+<td>0.093</td>
+<td>24.01</td>
+<td>0.1176722</td>
+<td>56.83</td>
+<td>8.55</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-14 22:01
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12lFxz"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CJ1M5/index_summary_C1CJ1M5.html">C1CJ1M5</a></td>
+<td>8</td>
+<td>2.30</td>
+<td>18:38</td>
+<td>+55° 07'</td>
+<td>20.0</td>
+<td>621.6847</td>
+<td>80.8</td>
+<td>0.873</td>
+<td>31.86</td>
+<td>0.0007701</td>
+<td>0.28</td>
+<td>5.88</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 14:26
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CJ1M5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE8N232/index_summary_CE8N232.html">CE8N232</a></td>
+<td>24</td>
+<td>28.79</td>
+<td>10:05</td>
+<td>+06° 11'</td>
+<td>21.0</td>
+<td>3.0519</td>
+<td>-171.4</td>
+<td>0.543</td>
+<td>22.91</td>
+<td>0.2037605</td>
+<td>1</td>
+<td>7.78</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 15:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE8N232"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C45X7Z1/index_summary_C45X7Z1.html">C45X7Z1</a></td>
+<td>8</td>
+<td>1.05</td>
+<td>16:11</td>
+<td>+56° 29'</td>
+<td>19.1</td>
+<td>11.6073</td>
+<td>101.0</td>
+<td>0.702</td>
+<td>23.47</td>
+<td>0.0132814</td>
+<td>4.09</td>
+<td>16.15</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.23</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:32
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C45X7Z1"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22lyTB/index_summary_P22lyTB.html">P22lyTB</a></td>
+<td>19</td>
+<td>259.40</td>
+<td>11:44</td>
+<td>+14° 31'</td>
+<td>21.6</td>
+<td>1.5209</td>
+<td>162.9</td>
+<td>0.488</td>
+<td>20.39</td>
+<td>0.6539214</td>
+<td>1</td>
+<td>6.51</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 11:28
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22lyTB"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/MDMI532/index_summary_MDMI532.html">MDMI532</a></td>
+<td>7</td>
+<td>151.06</td>
+<td>10:20</td>
+<td>-00° 46'</td>
+<td>21.8</td>
+<td>2.1791</td>
+<td>-169.6</td>
+<td>0.289</td>
+<td>22.50</td>
+<td>0.0242381</td>
+<td>1</td>
+<td>25.15</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 02:33
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=MDMI532"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CNZ15/index_summary_C1CNZ15.html">C1CNZ15</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>11:59</td>
+<td>+16° 14'</td>
+<td>21.7</td>
+<td>56.7283</td>
+<td>158.8</td>
+<td>1.144</td>
+<td>32.00</td>
+<td>0.0024566</td>
+<td>1.64</td>
+<td>4.61</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.002</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:35
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CNZ15"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CMXM5/index_summary_C1CMXM5.html">C1CMXM5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>11:33</td>
+<td>+33° 54'</td>
+<td>22.3</td>
+<td>1.3909</td>
+<td>151.7</td>
+<td>0.261</td>
+<td>24.91</td>
+<td>0.0175662</td>
+<td>7.31</td>
+<td>23.75</td>
+<td>0.86</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 09:57
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CMXM5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE8LNQ2/index_summary_CE8LNQ2.html">CE8LNQ2</a></td>
+<td>22</td>
+<td>23.45</td>
+<td>09:55</td>
+<td>+04° 29'</td>
+<td>21.5</td>
+<td>3.9214</td>
+<td>-168.5</td>
+<td>0.734</td>
+<td>26.94</td>
+<td>0.0069219</td>
+<td>1</td>
+<td>15.86</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 05:17
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE8LNQ2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ST26B20/index_summary_ST26B20.html">ST26B20</a></td>
+<td>9</td>
+<td>25.38</td>
+<td>03:17</td>
+<td>-69° 09'</td>
+<td>26.8</td>
+<td>0.8019</td>
+<td>74.8</td>
+<td>0.847</td>
+<td>28.38</td>
+<td>0.0063003</td>
+<td>2.98</td>
+<td>9.15</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-09 08:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ST26B20"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12ly16/index_summary_P12ly16.html">P12ly16</a></td>
+<td>4</td>
+<td>1.02</td>
+<td>13:14</td>
+<td>+01° 50'</td>
+<td>18.4</td>
+<td>26.0143</td>
+<td>140.6</td>
+<td>3.550</td>
+<td>28.69</td>
+<td>0.0016875</td>
+<td>0.92</td>
+<td>1.47</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.018</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-13 13:26
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12ly16"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE998L2/index_summary_CE998L2.html">CE998L2</a></td>
+<td>8</td>
+<td>1.18</td>
+<td>10:08</td>
+<td>+53° 35'</td>
+<td>20.7</td>
+<td>5.1835</td>
+<td>-134.5</td>
+<td>0.418</td>
+<td>21.28</td>
+<td>0.2633417</td>
+<td>0.54</td>
+<td>23.49</td>
+<td>0.97</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 06:06
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE998L2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/orA2763/index_summary_orA2763.html">orA2763</a></td>
+<td>3</td>
+<td>0.58</td>
+<td>12:37</td>
+<td>+03° 10'</td>
+<td>25.6</td>
+<td>0.0600</td>
+<td>150.0</td>
+<td>0.050</td>
+<td>31.93</td>
+<td>0.0000049</td>
+<td>0.01</td>
+<td>17.50</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.14</td>
+<td>0.001</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 08:07
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=orA2763"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CNPC5/index_summary_C1CNPC5.html">C1CNPC5</a></td>
+<td>8</td>
+<td>0.45</td>
+<td>11:33</td>
+<td>+23° 03'</td>
+<td>22.8</td>
+<td>0.2410</td>
+<td>160.4</td>
+<td>0.682</td>
+<td>11.14</td>
+<td>13.0752419</td>
+<td>0.03</td>
+<td>103.32</td>
+<td>0.30</td>
+<td>0.00</td>
+<td>0.02</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:21
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CNPC5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1C7EZ5/index_summary_C1C7EZ5.html">C1C7EZ5</a></td>
+<td>21</td>
+<td>68.97</td>
+<td>10:27</td>
+<td>+35° 14'</td>
+<td>22.0</td>
+<td>4.2338</td>
+<td>-153.2</td>
+<td>0.755</td>
+<td>21.91</td>
+<td>0.1985702</td>
+<td>1</td>
+<td>33.18</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:37
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1C7EZ5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CLAX5/index_summary_C1CLAX5.html">C1CLAX5</a></td>
+<td>7</td>
+<td>1.95</td>
+<td>09:19</td>
+<td>+46° 32'</td>
+<td>21.3</td>
+<td>6.7041</td>
+<td>-138.4</td>
+<td>0.818</td>
+<td>23.51</td>
+<td>0.0110612</td>
+<td>34.14</td>
+<td>16.40</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 08:47
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CLAX5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ZTF10BV/index_summary_ZTF10BV.html">ZTF10BV</a></td>
+<td>5</td>
+<td>2.15</td>
+<td>15:34</td>
+<td>-59° 58'</td>
+<td>23.1</td>
+<td>3.0480</td>
+<td>90.5</td>
+<td>0.250</td>
+<td>25.67</td>
+<td>0.0174916</td>
+<td>7.47</td>
+<td>12.35</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-15 04:46
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ZTF10BV"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CHM75/index_summary_C1CHM75.html">C1CHM75</a></td>
+<td>3</td>
+<td>0.27</td>
+<td>12:06</td>
+<td>+30° 27'</td>
+<td>23.2</td>
+<td>0.9834</td>
+<td>150.1</td>
+<td>0.069</td>
+<td>17.27</td>
+<td>1.4978786</td>
+<td>0.01</td>
+<td>56.81</td>
+<td>0.61</td>
+<td>0.15</td>
+<td>0.04</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> F </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 09:19
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CHM75"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CD0E5/index_summary_C1CD0E5.html">C1CD0E5</a></td>
+<td>9</td>
+<td>25.62</td>
+<td>10:51</td>
+<td>+27° 48'</td>
+<td>22.7</td>
+<td>3.2147</td>
+<td>-160.5</td>
+<td>0.647</td>
+<td>25.75</td>
+<td>0.0873908</td>
+<td>37.31</td>
+<td>8.38</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 12:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CD0E5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1C60U5/index_summary_C1C60U5.html">C1C60U5</a></td>
+<td>26</td>
+<td>69.93</td>
+<td>09:41</td>
+<td>+07° 33'</td>
+<td>22.7</td>
+<td>1.1452</td>
+<td>-165.9</td>
+<td>0.457</td>
+<td>20.18</td>
+<td>0.2098421</td>
+<td>1</td>
+<td>15.92</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:05
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1C60U5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/Sar2869/index_summary_Sar2869.html">Sar2869</a></td>
+<td>22</td>
+<td>27.77</td>
+<td>09:52</td>
+<td>+13° 51'</td>
+<td>20.4</td>
+<td>7.9524</td>
+<td>-167.4</td>
+<td>0.435</td>
+<td>24.31</td>
+<td>0.1034643</td>
+<td>1</td>
+<td>10.90</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 02:56
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=Sar2869"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C19RNP5/index_summary_C19RNP5.html">C19RNP5</a></td>
+<td>92</td>
+<td>1000.39</td>
+<td>17:34</td>
+<td>+43° 18'</td>
+<td>20.0</td>
+<td>0.9923</td>
+<td>85.9</td>
+<td>0.685</td>
+<td>19.00</td>
+<td>0.1295286</td>
+<td>1</td>
+<td>16.83</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">T</td>
+<td align="center">2026-02-26 07:01
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C19RNP5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CLG85/index_summary_C1CLG85.html">C1CLG85</a></td>
+<td>8</td>
+<td>4.76</td>
+<td>10:04</td>
+<td>+22° 55'</td>
+<td>22.2</td>
+<td>3.9574</td>
+<td>-163.4</td>
+<td>0.514</td>
+<td>24.34</td>
+<td>0.2081533</td>
+<td>26.59</td>
+<td></td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:09
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CLG85"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CLYY5/index_summary_C1CLYY5.html">C1CLYY5</a></td>
+<td>8</td>
+<td>4.13</td>
+<td>10:31</td>
+<td>+35° 13'</td>
+<td>22.2</td>
+<td>5.4112</td>
+<td>-153.3</td>
+<td>0.444</td>
+<td>24.68</td>
+<td>0.1408223</td>
+<td>6.65</td>
+<td>13.24</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:19
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CLYY5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22lMSN/index_summary_P22lMSN.html">P22lMSN</a></td>
+<td>12</td>
+<td>236.97</td>
+<td>15:05</td>
+<td>+09° 19'</td>
+<td>22.1</td>
+<td>0.1330</td>
+<td>114.2</td>
+<td>0.753</td>
+<td>18.69</td>
+<td>0.9303261</td>
+<td>1</td>
+<td></td>
+<td>0.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-23 11:47
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22lMSN"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/v23feb6/index_summary_v23feb6.html">v23feb6</a></td>
+<td>12</td>
+<td>48.06</td>
+<td>02:13</td>
+<td>-03° 49'</td>
+<td>21.5</td>
+<td>2.9755</td>
+<td>-53.6</td>
+<td>0.238</td>
+<td>18.97</td>
+<td>0.1628535</td>
+<td>1</td>
+<td>20.42</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.04</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 02:34
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=v23feb6"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22m4Sg/index_summary_P22m4Sg.html">P22m4Sg</a></td>
+<td>11</td>
+<td>13.56</td>
+<td>12:06</td>
+<td>+34° 32'</td>
+<td>21.3</td>
+<td>4.3506</td>
+<td>147.1</td>
+<td>0.625</td>
+<td>25.78</td>
+<td>0.0220125</td>
+<td>1</td>
+<td>9.92</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 23:23
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22m4Sg"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ZTF10Bg/index_summary_ZTF10Bg.html">ZTF10Bg</a></td>
+<td>4</td>
+<td>1.01</td>
+<td>21:26</td>
+<td>-32° 33'</td>
+<td>27.2</td>
+<td>7.5423</td>
+<td>29.3</td>
+<td>0.111</td>
+<td>25.69</td>
+<td>0.0014962</td>
+<td>3.01</td>
+<td>24.12</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.006</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 15:20
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ZTF10Bg"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CD7L5/index_summary_C1CD7L5.html">C1CD7L5</a></td>
+<td>8</td>
+<td>2.19</td>
+<td>12:12</td>
+<td>+19° 11'</td>
+<td>21.8</td>
+<td>15.3936</td>
+<td>154.9</td>
+<td>0.584</td>
+<td>28.51</td>
+<td>0.0153422</td>
+<td>8.96</td>
+<td>5.51</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 13:34
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CD7L5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CGC35/index_summary_C1CGC35.html">C1CGC35</a></td>
+<td>14</td>
+<td>21.51</td>
+<td>09:29</td>
+<td>+30° 49'</td>
+<td>22.3</td>
+<td>1.3667</td>
+<td>-152.5</td>
+<td>0.746</td>
+<td>26.24</td>
+<td>0.0102282</td>
+<td>6.13</td>
+<td>7.90</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 04:53
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CGC35"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ZTF10Bi/index_summary_ZTF10Bi.html">ZTF10Bi</a></td>
+<td>4</td>
+<td>0.71</td>
+<td>05:25</td>
+<td>+34° 18'</td>
+<td>17.3</td>
+<td>338.1268</td>
+<td>-104.5</td>
+<td>0.917</td>
+<td>31.07</td>
+<td>0.0000517</td>
+<td>1</td>
+<td>2.56</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.180</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 15:29
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ZTF10Bi"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CD665/index_summary_C1CD665.html">C1CD665</a></td>
+<td>14</td>
+<td>48.11</td>
+<td>11:39</td>
+<td>+35° 03'</td>
+<td>22.5</td>
+<td>5.7982</td>
+<td>150.0</td>
+<td>0.761</td>
+<td>27.89</td>
+<td>0.0388834</td>
+<td>1</td>
+<td>3.31</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 10:40
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CD665"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE99E42/index_summary_CE99E42.html">CE99E42</a></td>
+<td>7</td>
+<td>1.20</td>
+<td>12:03</td>
+<td>+48° 58'</td>
+<td>20.9</td>
+<td>5.1589</td>
+<td>-135.8</td>
+<td>0.445</td>
+<td>24.19</td>
+<td>0.0977729</td>
+<td>0.09</td>
+<td>4.84</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:41
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE99E42"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE99AX2/index_summary_CE99AX2.html">CE99AX2</a></td>
+<td>8</td>
+<td>1.06</td>
+<td>10:42</td>
+<td>+42° 07'</td>
+<td>19.8</td>
+<td>24.6541</td>
+<td>-146.4</td>
+<td>1.666</td>
+<td>26.84</td>
+<td>0.0062575</td>
+<td>1</td>
+<td>16.92</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 06:36
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE99AX2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1C7FZ5/index_summary_C1C7FZ5.html">C1C7FZ5</a></td>
+<td>12</td>
+<td>70.27</td>
+<td>10:40</td>
+<td>+29° 09'</td>
+<td>23.0</td>
+<td>2.4488</td>
+<td>-159.4</td>
+<td>0.785</td>
+<td>23.43</td>
+<td>0.3742359</td>
+<td>1</td>
+<td>9.44</td>
+<td>0.05</td>
+<td>0.16</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 09:47
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1C7FZ5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CDFZ5/index_summary_C1CDFZ5.html">C1CDFZ5</a></td>
+<td>11</td>
+<td>23.67</td>
+<td>14:04</td>
+<td>+14° 23'</td>
+<td>21.8</td>
+<td>0.4436</td>
+<td>129.4</td>
+<td>0.279</td>
+<td>18.84</td>
+<td>0.7738749</td>
+<td>1</td>
+<td></td>
+<td>0.17</td>
+<td>0.49</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 14:13
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CDFZ5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE82VN2/index_summary_CE82VN2.html">CE82VN2</a></td>
+<td>24</td>
+<td>22.15</td>
+<td>10:58</td>
+<td>+11° 11'</td>
+<td>22.2</td>
+<td>2.8111</td>
+<td>174.5</td>
+<td>0.678</td>
+<td>27.13</td>
+<td>0.0134585</td>
+<td>1</td>
+<td>16.21</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 06:23
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE82VN2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CM0V5/index_summary_C1CM0V5.html">C1CM0V5</a></td>
+<td>8</td>
+<td>1.59</td>
+<td>10:23</td>
+<td>+34° 52'</td>
+<td>21.6</td>
+<td>1.1144</td>
+<td>-153.5</td>
+<td>0.599</td>
+<td>24.82</td>
+<td>0.0056631</td>
+<td>1.00</td>
+<td>17.69</td>
+<td>0.95</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 08:53
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CM0V5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE8AMJ2/index_summary_CE8AMJ2.html">CE8AMJ2</a></td>
+<td>23</td>
+<td>25.22</td>
+<td>11:26</td>
+<td>+15° 02'</td>
+<td>21.9</td>
+<td>1.4897</td>
+<td>166.6</td>
+<td>0.690</td>
+<td>16.72</td>
+<td>2.1149367</td>
+<td>1</td>
+<td>79.24</td>
+<td>0.03</td>
+<td>0.19</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 11:33
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE8AMJ2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CHY25/index_summary_C1CHY25.html">C1CHY25</a></td>
+<td>12</td>
+<td>23.56</td>
+<td>13:26</td>
+<td>+04° 31'</td>
+<td>21.9</td>
+<td>6.6474</td>
+<td>138.1</td>
+<td>28.008</td>
+<td>29.65</td>
+<td>0.0083937</td>
+<td>1</td>
+<td>1.98</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 09:48
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CHY25"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ZTF10Bf/index_summary_ZTF10Bf.html">ZTF10Bf</a></td>
+<td>4</td>
+<td>0.43</td>
+<td>11:33</td>
+<td>+25° 11'</td>
+<td>17.8</td>
+<td>194.4664</td>
+<td>158.9</td>
+<td>2.352</td>
+<td>33.44</td>
+<td>0.0004640</td>
+<td>0.07</td>
+<td>1.59</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.040</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 14:57
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ZTF10Bf"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CNEU5/index_summary_C1CNEU5.html">C1CNEU5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>11:00</td>
+<td>+17° 40'</td>
+<td>24.4</td>
+<td>1.2171</td>
+<td>169.5</td>
+<td>0.390</td>
+<td>31.40</td>
+<td>0.0004199</td>
+<td>0.01</td>
+<td>27.71</td>
+<td>0.82</td>
+<td>0.04</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 10:35
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CNEU5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/oDM1186/index_summary_oDM1186.html">oDM1186</a></td>
+<td>3</td>
+<td>0.34</td>
+<td>22:20</td>
+<td>-10° 37'</td>
+<td>52.2</td>
+<td>0.0697</td>
+<td>5.1</td>
+<td>0.098</td>
+<td>33.87</td>
+<td>0.0000424</td>
+<td>0.02</td>
+<td>25.62</td>
+<td>0.04</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 03:47
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=oDM1186"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CM1Y5/index_summary_C1CM1Y5.html">C1CM1Y5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>10:31</td>
+<td>+35° 43'</td>
+<td>21.9</td>
+<td>1.0525</td>
+<td>-152.8</td>
+<td>0.375</td>
+<td>25.96</td>
+<td>0.0022102</td>
+<td>1.36</td>
+<td>22.92</td>
+<td>0.80</td>
+<td>0.06</td>
+<td>0.08</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:59
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CM1Y5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CHMP5/index_summary_C1CHMP5.html">C1CHMP5</a></td>
+<td>11</td>
+<td>23.49</td>
+<td>12:01</td>
+<td>+35° 33'</td>
+<td>22.0</td>
+<td>5.8935</td>
+<td>147.1</td>
+<td>0.752</td>
+<td>24.91</td>
+<td>0.0110604</td>
+<td>49.60</td>
+<td>10.95</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 08:50
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CHMP5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE91WF2/index_summary_CE91WF2.html">CE91WF2</a></td>
+<td>11</td>
+<td>22.85</td>
+<td>09:59</td>
+<td>+08° 44'</td>
+<td>19.5</td>
+<td>25.5915</td>
+<td>-170.4</td>
+<td>0.736</td>
+<td>25.82</td>
+<td>0.0273945</td>
+<td>10.74</td>
+<td>17.47</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 05:38
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE91WF2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CMXH5/index_summary_C1CMXH5.html">C1CMXH5</a></td>
+<td>8</td>
+<td>1.41</td>
+<td>11:39</td>
+<td>+36° 12'</td>
+<td>21.7</td>
+<td>12.1497</td>
+<td>149.1</td>
+<td>0.859</td>
+<td>27.42</td>
+<td>0.0251387</td>
+<td>4.34</td>
+<td>6.71</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 10:53
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CMXH5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C45X7F1/index_summary_C45X7F1.html">C45X7F1</a></td>
+<td>8</td>
+<td>1.26</td>
+<td>11:27</td>
+<td>+07° 03'</td>
+<td>18.7</td>
+<td>45.1721</td>
+<td>167.9</td>
+<td>0.444</td>
+<td>27.64</td>
+<td>0.0115198</td>
+<td>4.60</td>
+<td>6.47</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:21
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C45X7F1"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12m9wo/index_summary_P12m9wo.html">P12m9wo</a></td>
+<td>6</td>
+<td>14.44</td>
+<td>12:14</td>
+<td>-10° 20'</td>
+<td>21.6</td>
+<td>2.1081</td>
+<td>149.5</td>
+<td>0.416</td>
+<td>21.33</td>
+<td>0.3740132</td>
+<td>33.51</td>
+<td>13.23</td>
+<td>0.54</td>
+<td>0.19</td>
+<td>0.06</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 04:08
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12m9wo"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CJ2M5/index_summary_C1CJ2M5.html">C1CJ2M5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>00:41</td>
+<td>-25° 16'</td>
+<td>28.3</td>
+<td>8.9883</td>
+<td>-33.6</td>
+<td>0.076</td>
+<td>30.31</td>
+<td>0.0004345</td>
+<td>0.17</td>
+<td>33.03</td>
+<td>0.82</td>
+<td>0.05</td>
+<td>0.01</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 13:54
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CJ2M5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12m83M/index_summary_P12m83M.html">P12m83M</a></td>
+<td>12</td>
+<td>14.47</td>
+<td>12:24</td>
+<td>-17° 11'</td>
+<td>19.8</td>
+<td>9.6588</td>
+<td>143.3</td>
+<td>0.371</td>
+<td>25.63</td>
+<td>0.0062179</td>
+<td>3.96</td>
+<td>12.28</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:09
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12m83M"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CNVD5/index_summary_C1CNVD5.html">C1CNVD5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>11:36</td>
+<td>+22° 41'</td>
+<td>23.3</td>
+<td>0.6170</td>
+<td>160.2</td>
+<td>0.146</td>
+<td>29.59</td>
+<td>0.0000014</td>
+<td>0.02</td>
+<td>24.53</td>
+<td>0.77</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.001</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:25
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CNVD5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12m9t5/index_summary_P12m9t5.html">P12m9t5</a></td>
+<td>10</td>
+<td>15.48</td>
+<td>14:49</td>
+<td>-18° 40'</td>
+<td>21.3</td>
+<td>5.1373</td>
+<td>112.4</td>
+<td>0.408</td>
+<td>22.18</td>
+<td>0.1102159</td>
+<td>1</td>
+<td>15.50</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 06:30
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12m9t5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/A11yqBr/index_summary_A11yqBr.html">A11yqBr</a></td>
+<td>4</td>
+<td>1.02</td>
+<td>15:54</td>
+<td>+26° 42'</td>
+<td>22.2</td>
+<td>0.0919</td>
+<td>103.7</td>
+<td>0.456</td>
+<td>24.43</td>
+<td>0.0011017</td>
+<td>0.01</td>
+<td>15.13</td>
+<td>0.92</td>
+<td>0.02</td>
+<td>0.22</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-18 08:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=A11yqBr"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22bZYt/index_summary_P22bZYt.html">P22bZYt</a></td>
+<td>21</td>
+<td>935.66</td>
+<td>16:17</td>
+<td>-49° 11'</td>
+<td>22.1</td>
+<td>1.2643</td>
+<td>86.9</td>
+<td>805.106</td>
+<td>17.68</td>
+<td>1.2868618</td>
+<td>1</td>
+<td>66.92</td>
+<td>0.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">T</td>
+<td align="center">2025-08-25 13:24
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22bZYt"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22m9t0/index_summary_P22m9t0.html">P22m9t0</a></td>
+<td>13</td>
+<td>16.51</td>
+<td>13:29</td>
+<td>+19° 58'</td>
+<td>20.5</td>
+<td>11.9215</td>
+<td>137.2</td>
+<td>0.576</td>
+<td>24.99</td>
+<td>0.0004868</td>
+<td>20.80</td>
+<td>7.97</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 08:04
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22m9t0"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE89FX2/index_summary_CE89FX2.html">CE89FX2</a></td>
+<td>33</td>
+<td>22.78</td>
+<td>18:03</td>
+<td>-68° 06'</td>
+<td>22.7</td>
+<td>31.4095</td>
+<td>74.2</td>
+<td>0.663</td>
+<td>27.18</td>
+<td>0.0085745</td>
+<td>4.77</td>
+<td>13.91</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 15:25
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE89FX2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CDCT5/index_summary_C1CDCT5.html">C1CDCT5</a></td>
+<td>7</td>
+<td>1.15</td>
+<td>00:57</td>
+<td>-25° 31'</td>
+<td>26.4</td>
+<td>15.6502</td>
+<td>-37.0</td>
+<td>0.588</td>
+<td>28.40</td>
+<td>0.0004336</td>
+<td>0.39</td>
+<td>39.78</td>
+<td>0.87</td>
+<td>0.05</td>
+<td>0.02</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-24 13:34
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CDCT5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CM3M5/index_summary_C1CM3M5.html">C1CM3M5</a></td>
+<td>8</td>
+<td>3.71</td>
+<td>10:39</td>
+<td>+30° 25'</td>
+<td>22.5</td>
+<td>3.0234</td>
+<td>-158.1</td>
+<td>0.341</td>
+<td>22.58</td>
+<td>0.2392189</td>
+<td>0.61</td>
+<td>28.40</td>
+<td>0.80</td>
+<td>0.06</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:24
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CM3M5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CA1L5/index_summary_C1CA1L5.html">C1CA1L5</a></td>
+<td>13</td>
+<td>23.37</td>
+<td>07:55</td>
+<td>+34° 36'</td>
+<td>21.8</td>
+<td>11.7005</td>
+<td>-134.4</td>
+<td>0.717</td>
+<td>23.79</td>
+<td>0.0346389</td>
+<td>65.18</td>
+<td>27.14</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 05:32
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CA1L5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CM1G5/index_summary_C1CM1G5.html">C1CM1G5</a></td>
+<td>4</td>
+<td>0.40</td>
+<td>10:27</td>
+<td>+35° 57'</td>
+<td>22.2</td>
+<td>0.3596</td>
+<td>-152.5</td>
+<td>0.583</td>
+<td>13.85</td>
+<td>5.8941453</td>
+<td>0.30</td>
+<td></td>
+<td>0.22</td>
+<td>0.03</td>
+<td>0.01</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:45
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CM1G5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/X89255/index_summary_X89255.html">X89255</a></td>
+<td>3</td>
+<td>0.68</td>
+<td>11:20</td>
+<td>-00° 12'</td>
+<td>17.8</td>
+<td>0.0890</td>
+<td>166.3</td>
+<td>0.994</td>
+<td>15.40</td>
+<td>0.9110588</td>
+<td>0.01</td>
+<td></td>
+<td>0.61</td>
+<td>0.03</td>
+<td>0.30</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-20 14:36
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=X89255"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE90Y32/index_summary_CE90Y32.html">CE90Y32</a></td>
+<td>18</td>
+<td>24.63</td>
+<td>14:48</td>
+<td>+14° 12'</td>
+<td>21.4</td>
+<td>9.7456</td>
+<td>118.7</td>
+<td>0.877</td>
+<td>25.61</td>
+<td>0.0045775</td>
+<td>1</td>
+<td>12.16</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 11:59
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE90Y32"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CJ1E5/index_summary_C1CJ1E5.html">C1CJ1E5</a></td>
+<td>8</td>
+<td>2.19</td>
+<td>13:46</td>
+<td>+31° 44'</td>
+<td>23.1</td>
+<td>5.1676</td>
+<td>130.7</td>
+<td>0.520</td>
+<td>25.82</td>
+<td>0.0680159</td>
+<td>9.55</td>
+<td>12.21</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 13:16
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CJ1E5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CD955/index_summary_C1CD955.html">C1CD955</a></td>
+<td>12</td>
+<td>19.26</td>
+<td>12:03</td>
+<td>+26° 40'</td>
+<td>22.0</td>
+<td>5.4223</td>
+<td>152.9</td>
+<td>0.544</td>
+<td>26.54</td>
+<td>0.0008841</td>
+<td>1</td>
+<td>9.54</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 06:23
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CD955"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE99FZ2/index_summary_CE99FZ2.html">CE99FZ2</a></td>
+<td>11</td>
+<td>3.50</td>
+<td>13:27</td>
+<td>+50° 32'</td>
+<td>20.8</td>
+<td>2.7205</td>
+<td>125.4</td>
+<td>0.710</td>
+<td>20.73</td>
+<td>0.0638764</td>
+<td>30.27</td>
+<td>21.03</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.32</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:26
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE99FZ2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22m9tq/index_summary_P22m9tq.html">P22m9tq</a></td>
+<td>10</td>
+<td>25.97</td>
+<td>09:59</td>
+<td>-10° 03'</td>
+<td>21.6</td>
+<td>2.1900</td>
+<td>-158.9</td>
+<td>0.365</td>
+<td>24.15</td>
+<td>0.1741943</td>
+<td>1</td>
+<td></td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 11:05
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22m9tq"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/X89042/index_summary_X89042.html">X89042</a></td>
+<td>3</td>
+<td>0.68</td>
+<td>11:14</td>
+<td>+32° 00'</td>
+<td>20.9</td>
+<td>0.2861</td>
+<td>-155.1</td>
+<td>0.402</td>
+<td>10.06</td>
+<td>10.8463297</td>
+<td>0.60</td>
+<td>85.48</td>
+<td>0.09</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-14 23:39
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=X89042"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/CE99AM2/index_summary_CE99AM2.html">CE99AM2</a></td>
+<td>8</td>
+<td>1.20</td>
+<td>11:04</td>
+<td>+50° 58'</td>
+<td>20.6</td>
+<td>3.8203</td>
+<td>-137.2</td>
+<td>0.540</td>
+<td>22.02</td>
+<td>0.1651661</td>
+<td>65.16</td>
+<td>12.51</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.02</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 06:45
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=CE99AM2"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1C4K95/index_summary_C1C4K95.html">C1C4K95</a></td>
+<td>16</td>
+<td>70.56</td>
+<td>08:30</td>
+<td>+10° 21'</td>
+<td>22.8</td>
+<td>1.6553</td>
+<td>-148.4</td>
+<td>0.517</td>
+<td>22.23</td>
+<td>0.4317872</td>
+<td>1</td>
+<td>3.73</td>
+<td>0.85</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:56
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1C4K95"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/ZTF10Bo/index_summary_ZTF10Bo.html">ZTF10Bo</a></td>
+<td>4</td>
+<td>1.07</td>
+<td>16:43</td>
+<td>-35° 03'</td>
+<td>20.2</td>
+<td>48.4274</td>
+<td>84.1</td>
+<td>0.392</td>
+<td>26.16</td>
+<td>0.0021005</td>
+<td>2.81</td>
+<td>14.45</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.011</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 16:21
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=ZTF10Bo"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/A11yzTN/index_summary_A11yzTN.html">A11yzTN</a></td>
+<td>84</td>
+<td>1573.01</td>
+<td>12:45</td>
+<td>+06° 01'</td>
+<td>19.4</td>
+<td>0.2390</td>
+<td>148.4</td>
+<td>2.296</td>
+<td>9.39</td>
+<td>0.3355035</td>
+<td>1</td>
+<td>55.22</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">T</td>
+<td align="center">2026-02-26 06:31
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=A11yzTN"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C1CGEN5/index_summary_C1CGEN5.html">C1CGEN5</a></td>
+<td>11</td>
+<td>985.08</td>
+<td>09:40</td>
+<td>+32° 03'</td>
+<td>22.5</td>
+<td>0.9306</td>
+<td>-152.8</td>
+<td>0.394</td>
+<td>20.20</td>
+<td>0.6927126</td>
+<td>1</td>
+<td></td>
+<td>0.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 13:12
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C1CGEN5"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22m4Se/index_summary_P22m4Se.html">P22m4Se</a></td>
+<td>16</td>
+<td>21.73</td>
+<td>11:27</td>
+<td>+29° 38'</td>
+<td>20.9</td>
+<td>1.9067</td>
+<td>156.0</td>
+<td>0.539</td>
+<td>24.25</td>
+<td>0.0235770</td>
+<td>10.43</td>
+<td>10.82</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:14
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22m4Se"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/A11yLMf/index_summary_A11yLMf.html">A11yLMf</a></td>
+<td>4</td>
+<td>0.43</td>
+<td>06:28</td>
+<td>-30° 42'</td>
+<td>20.4</td>
+<td>4.4813</td>
+<td>-108.5</td>
+<td>0.366</td>
+<td>23.41</td>
+<td>0.0065347</td>
+<td>0.00</td>
+<td>48.31</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.11</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 22:18
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=A11yLMf"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/oDM0553/index_summary_oDM0553.html">oDM0553</a></td>
+<td>6</td>
+<td>0.49</td>
+<td>22:16</td>
+<td>-10° 44'</td>
+<td>49.2</td>
+<td>0.1149</td>
+<td>5.9</td>
+<td>0.092</td>
+<td>33.24</td>
+<td>0.0000532</td>
+<td>0.04</td>
+<td>25.92</td>
+<td>0.02</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 03:45
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=oDM0553"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/C45WPA1/index_summary_C45WPA1.html">C45WPA1</a></td>
+<td>8</td>
+<td>0.81</td>
+<td>07:34</td>
+<td>+17° 06'</td>
+<td>18.8</td>
+<td>153.9250</td>
+<td>-134.3</td>
+<td>0.262</td>
+<td>32.94</td>
+<td>0.0007319</td>
+<td>0.05</td>
+<td>1.47</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>1.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-25 07:23
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=C45WPA1"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P12lDlR/index_summary_P12lDlR.html">P12lDlR</a></td>
+<td>19</td>
+<td>282.24</td>
+<td>08:44</td>
+<td>-00° 49'</td>
+<td>22.5</td>
+<td>0.7262</td>
+<td>-150.0</td>
+<td>0.439</td>
+<td>20.15</td>
+<td>0.7904737</td>
+<td>1</td>
+<td></td>
+<td>0.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 07:18
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P12lDlR"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+<tr align="center">
+<td><a href="scan_neocp/P22maoZ/index_summary_P22maoZ.html">P22maoZ</a></td>
+<td>3</td>
+<td>0.54</td>
+<td>09:11</td>
+<td>-13° 04'</td>
+<td>19.4</td>
+<td>17.0477</td>
+<td>-149.4</td>
+<td>0.010</td>
+<td>23.92</td>
+<td>0.0620899</td>
+<td>3.72</td>
+<td>13.55</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>0
+</td>
+<td align="center"> T </td>
+<td align="center">F</td>
+<td align="center">2026-02-26 10:57
+</td>
+<td align="center"><a href="../include/neodys_cgi-bin/ephem_page.pl?obj=P22maoZ"><font size="3px">&#9656;&#9656;</font></a></td>
+</tr>
+	</table>
+
+	<br/><br/>
+
+      </div>
+    </div>
+  </body>
+</html>
