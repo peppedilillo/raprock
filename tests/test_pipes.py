@@ -2,14 +2,14 @@ import pandas as pd
 import pytest
 
 from raprock.pipes import (
-    TWILIGHTS,
     after_twilight,
     compact_intervals,
     higher_than,
     longer_than,
+    not_moon_occulted,
     start_observation_between,
 )
-from raprock.utils import min2days
+from raprock.utils import min2days, TWILIGHTS, MOON_RADIUS_DEG
 
 STEP = 15 * min2days  # 15-minute steps in days
 
@@ -48,6 +48,13 @@ def test_after_twilight(phase, threshold):
     result = after_twilight(df, phase=phase)
     assert len(result) == 1
     assert result.iloc[0]["Sun_elev"] == threshold - 1
+
+
+def test_not_moon_occulted():
+    threshold = 2.0 * MOON_RADIUS_DEG
+    df = pd.DataFrame({"LunEl": [threshold - 0.01, threshold, threshold + 0.01]})
+    result = not_moon_occulted(df)
+    assert list(result.index) == [2]
 
 
 def test_higher_than(two_window_df):
