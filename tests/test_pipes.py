@@ -1,15 +1,15 @@
 import pandas as pd
 import pytest
 
-from raprock.pipes import (
-    after_twilight,
-    compact_intervals,
-    higher_than,
-    longer_than,
-    not_moon_occulted,
-    start_observation_between,
-)
-from raprock.utils import min2days, TWILIGHTS, MOON_RADIUS_DEG
+from raprock.pipes import after_twilight
+from raprock.pipes import compact_intervals
+from raprock.pipes import higher_than
+from raprock.pipes import longer_than
+from raprock.pipes import not_moon_occulted
+from raprock.pipes import start_observation_between
+from raprock.utils import min2days
+from raprock.utils import MOON_RADIUS_DEG
+from raprock.utils import TWILIGHTS
 
 STEP = 15 * min2days  # 15-minute steps in days
 
@@ -40,11 +40,13 @@ def filtered_df(two_window_df):
 
 @pytest.mark.parametrize("phase,threshold", list(TWILIGHTS.items()))
 def test_after_twilight(phase, threshold):
-    df = pd.DataFrame({
-        "MJD": [1.0, 2.0, 3.0],
-        "Alt": [30.0, 30.0, 30.0],
-        "Sun_elev": [threshold - 1, threshold, threshold + 1],
-    })
+    df = pd.DataFrame(
+        {
+            "MJD": [1.0, 2.0, 3.0],
+            "Alt": [30.0, 30.0, 30.0],
+            "Sun_elev": [threshold - 1, threshold, threshold + 1],
+        }
+    )
     result = after_twilight(df, phase=phase)
     assert len(result) == 1
     assert result.iloc[0]["Sun_elev"] == threshold - 1

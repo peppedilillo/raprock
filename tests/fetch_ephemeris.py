@@ -3,15 +3,17 @@ Fetch raw ephemeris text files for 50 NEOCP objects from NEOScan (G83/LBT).
 Saves each result to tests/neoscan_ephemeris_{objname}_G83.txt.
 Run from the project root: python tests/fetch_ephemeris.py
 """
-import time
-from pathlib import Path
 
-from raprock.neoscan import get_objects, _post_ephemeris_request
+from pathlib import Path
+import time
+
+from raprock.neoscan import _post_ephemeris_request
+from raprock.neoscan import get_objects
 
 TSTART = {"year0": "2026", "month0": "02", "day0": "26", "hour0": "18", "mins0": "00"}
-TEND   = {"year1": "2026", "month1": "03", "day1": "10", "hour1": "18", "mins1": "00"}
-STEP   = {"interval": "60.0", "intunit": "minutes"}
-CODE   = "G83"
+TEND = {"year1": "2026", "month1": "03", "day1": "10", "hour1": "18", "mins1": "00"}
+STEP = {"interval": "60.0", "intunit": "minutes"}
+CODE = "G83"
 
 OUT_DIR = Path(__file__).parent
 MAX_OBJECTS = 50

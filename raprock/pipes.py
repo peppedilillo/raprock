@@ -1,7 +1,9 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
-from raprock.utils import min2days, TWILIGHTS, MOON_RADIUS_DEG
+from raprock.utils import min2days
+from raprock.utils import MOON_RADIUS_DEG
+from raprock.utils import TWILIGHTS
 
 
 def after_twilight(df: pd.DataFrame, phase: str = "astronomical") -> pd.DataFrame:
@@ -13,7 +15,7 @@ def not_moon_occulted(
     df: pd.DataFrame,
 ) -> pd.DataFrame:
     """Filter rows where the object is outside twice the Moon's angular radius from the lunar center."""
-    return df[df["LunEl"] > 2. * MOON_RADIUS_DEG]
+    return df[df["LunEl"] > 2.0 * MOON_RADIUS_DEG]
 
 
 def higher_than(df: pd.DataFrame, deg: float) -> pd.DataFrame:
@@ -23,8 +25,8 @@ def higher_than(df: pd.DataFrame, deg: float) -> pd.DataFrame:
 
 def compact_intervals(idx: pd.Index) -> tuple[np.ndarray, np.ndarray]:
     """Return (starts, ends) index arrays marking boundaries of contiguous index groups."""
-    starts = idx[(np.diff(idx, prepend=-np.inf) - 1.) > 1.]
-    ends = idx[-np.diff(idx[::-1], prepend=np.inf)[::-1] > 1.]
+    starts = idx[(np.diff(idx, prepend=-np.inf) - 1.0) > 1.0]
+    ends = idx[-np.diff(idx[::-1], prepend=np.inf)[::-1] > 1.0]
     return starts, ends
 
 
@@ -38,13 +40,16 @@ def longer_than(df: pd.DataFrame, duration_min: float) -> pd.DataFrame:
     return df[mask]
 
 
-def start_observation_between(df: pd.DataFrame, exposure_min: float) -> list[tuple[float, float]]:
+def start_observation_between(
+    df: pd.DataFrame, exposure_min: float
+) -> list[tuple[float, float]]:
     """For each contiguous window, returns the (start_mjd, end_mjd) interval within which
-    an observation of exposure_min duration can begin and still finish before the window ends."""
+    an observation of exposure_min duration can begin and still finish before the window ends.
+    """
     starts, ends = compact_intervals(df.index)
     windows: list[tuple[float, float]] = []
     for s, e in zip(starts, ends):
         exposure_days = exposure_min * min2days
-        if (end_mjd := df.loc[e].MJD - exposure_days) - df.loc[s].MJD > 0.:
+        if (end_mjd := df.loc[e].MJD - exposure_days) - df.loc[s].MJD > 0.0:
             windows.append((df.loc[s].MJD.item(), end_mjd.item()))
     return windows

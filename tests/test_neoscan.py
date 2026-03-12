@@ -2,7 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from raprock.neoscan import _parse_neocp_table, _parse_ephemeris, EphFormatError, EphEmptyError
+from raprock.neoscan import _parse_ephemeris
+from raprock.neoscan import _parse_neocp_table
+from raprock.neoscan import EphEmptyError
+from raprock.neoscan import EphFormatError
 
 EPHEMERIS_DIR = Path(__file__).parent / "ephemeris"
 
@@ -24,7 +27,14 @@ def test_parse_ephemeris_values():
 
     assert len(df) == 649
     assert len(df.columns) == 19
-    assert {"MJD", "RA_deg", "DEC_deg", "RA_rate_deg", "DEC_rate_deg", "Vel_deg"}.issubset(df.columns)
+    assert {
+        "MJD",
+        "RA_deg",
+        "DEC_deg",
+        "RA_rate_deg",
+        "DEC_rate_deg",
+        "Vel_deg",
+    }.issubset(df.columns)
 
     assert df.iloc[0]["MJD"] == pytest.approx(61097.625, abs=0.001)
     assert df.iloc[0]["RA_deg"] == pytest.approx(155.506596, abs=0.001)

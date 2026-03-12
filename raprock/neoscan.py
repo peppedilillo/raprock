@@ -1,10 +1,11 @@
+from datetime import datetime
+from datetime import timedelta
 import hashlib
 from io import StringIO
 import json
 import re
 import time
 import urllib.parse
-from datetime import datetime, timedelta
 
 from astropy.time import Time
 from bs4 import BeautifulSoup
@@ -54,7 +55,9 @@ def get_ephemeris(
     if isinstance(tend, str):
         tend = datetime.fromisoformat(tend)
 
-    total_minutes = deltat.total_seconds() / 60 if isinstance(deltat, timedelta) else float(deltat)
+    total_minutes = (
+        deltat.total_seconds() / 60 if isinstance(deltat, timedelta) else float(deltat)
+    )
 
     payload = {
         "any_name": object_name,
@@ -73,7 +76,7 @@ def get_ephemeris(
         "intunit": "minutes",
     }
     return _parse_ephemeris(_post_ephemeris_request(payload))
-    
+
 
 def _parse_neocp_table(html: str) -> tuple[str]:
     """
@@ -86,6 +89,7 @@ def _parse_neocp_table(html: str) -> tuple[str]:
     df = tables[0]
     df.columns = df.columns.str.strip()
     return tuple(df["NEOCP name"])
+
 
 def _post_ephemeris_request(payload: dict) -> str:
     """
@@ -298,11 +302,13 @@ def _parse_ephemeris(eph_text: str) -> pd.DataFrame:
     df["RA_deg"] = (df["RA_h"] + df["RA_m"] / 60.0 + df["RA_s"] / 3600.0) * 15.0
     dec_sign = df["DEC_d"].str.strip().str.startswith("-").map({True: -1, False: 1})
     df["DEC_deg"] = dec_sign * (
-            pd.to_numeric(df["DEC_d"], errors="coerce").abs()
-            + df["DEC_m"] / 60.0
-            + df["DEC_s"] / 3600.0
+        pd.to_numeric(df["DEC_d"], errors="coerce").abs()
+        + df["DEC_m"] / 60.0
+        + df["DEC_s"] / 3600.0
     )
-    df["MJD"] = Time(pd.to_datetime(df["Datetime"]).tolist(), format="datetime", scale="utc").mjd
+    df["MJD"] = Time(
+        pd.to_datetime(df["Datetime"]).tolist(), format="datetime", scale="utc"
+    ).mjd
     df["RA_rate_deg"] = df["RA_rate"] / 3600.0
     df["DEC_rate_deg"] = df["DEC_rate"] / 3600.0
     df["Vel_deg"] = df["Vel"] / 3600.0
