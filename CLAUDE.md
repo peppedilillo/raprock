@@ -16,6 +16,24 @@ Goal: Monitor Near Earth Objects (NEOs) and find close observation opportunities
 
 ## Current Implementation
 
+### Module: `raprock/pipes.py`
+
+Filtering and aggregation pipeline operating on ephemeris DataFrames.
+
+**Filter functions** (each returns a filtered DataFrame):
+- `after_twilight(df, phase)` — keep rows where Sun elevation is below the given twilight threshold (civil/nautical/astronomical)
+- `not_moon_occulted(df)` — keep rows where the object is outside 2× the Moon's angular radius
+- `higher_than(df, deg)` — keep rows where object altitude exceeds `deg` degrees
+- `longer_than(df, duration_min)` — keep only rows belonging to contiguous windows spanning ≥ `duration_min` minutes
+
+**Aggregation / window utilities:**
+- `compact_intervals(idx)` — returns `(starts, ends)` index arrays marking boundaries of contiguous index groups
+- `split(df)` — splits df into a list of sub-DataFrames, one per contiguous window
+- `opportunity_windows(df, exposure_len)` — aggregates filtered rows into a summary table; one row per window that can fit an exposure of `exposure_len` minutes, with columns `win_start`, `win_end`, `Alt_max`, `V_min`, `V_delta`
+- `start_observation_between(df, exposure_min)` — returns `(start_mjd, end_mjd)` tuples giving the valid start interval per window
+
+---
+
 ### Module: `raprock/neoscan.py`
 
 **Main Function: `post_ephemeris_request(payload: dict, headers: dict) -> str`**
@@ -57,7 +75,9 @@ Dev dependencies:
 raprock/
 ├── raprock/
 │   ├── __init__.py
-│   └── neoscan.py       # NEOScan ephemeris retrieval
+│   ├── neoscan.py       # NEOScan ephemeris retrieval
+│   ├── pipes.py         # Filtering & aggregation pipeline
+│   └── utils.py         # Constants and unit conversions
 ├── tests/
 │   └── __init__.py
 ├── main.py              # Entry point (placeholder)
@@ -120,5 +140,5 @@ Do not comment obvious operations or repeat what the code already says.
 - [x] Ephemeris parsing (parse_ephemeris)
 - [ ] Observatory configuration
 - [ ] Visibility calculations
-- [ ] Opportunity detection
-- [ ] Testing suite
+- [x] Opportunity detection (opportunity_windows in pipes.py)
+- [ ] Testing suite (partial — pipes covered, neoscan not yet)
