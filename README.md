@@ -1,6 +1,7 @@
 # raprock
 
-Rapid-response observation tools for Near Earth Objects.
+Monitor Near Earth Objects (NEOs) and find close observation opportunities for different observatories. 
+An ASI Rapid Response tool.
 
 ## Setup
 
@@ -39,7 +40,7 @@ from raprock.neoscan import get_ephemeris
 from raprock.observatories import LBT
 from raprock.pipes import after_twilight, not_moon_occulted, higher_than, longer_than, opportunity_windows
 
-EXPOSURE_MIN = 100  # minutes
+EXPOSURE_MIN = 15  # minutes
 
 df = get_ephemeris(
     object_name="CEC2XQ2",
