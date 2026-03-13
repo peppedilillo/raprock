@@ -6,6 +6,7 @@ from raprock.pipes import compact_intervals
 from raprock.pipes import higher_than
 from raprock.pipes import longer_than
 from raprock.pipes import not_moon_occulted
+from raprock.pipes import opportunity_windows
 from raprock.pipes import start_observation_between
 from raprock.utils import min2days
 from raprock.utils import MOON_RADIUS_DEG
@@ -28,7 +29,15 @@ def two_window_df():
     alts = [30.0] * 3 + [5.0, 5.0] + [30.0] * 5
     sun_elevs = [-20.0] * n
 
-    df = pd.DataFrame({"MJD": mjds, "Alt": alts, "Sun_elev": sun_elevs})
+    df = pd.DataFrame({
+        "MJD": mjds,
+        "Alt": alts,
+        "Sun_elev": sun_elevs,
+        "Object": ["C1C9Y25"] * n,
+        "Obs_name": ["Geocenter"] * n,
+        "Obs_code": ["500"] * n,
+        "Mag": [18.0 + i * 0.1 for i in range(n)],
+    })
     return df
 
 
@@ -100,3 +109,21 @@ def test_start_observation_between_window_too_short(filtered_df):
     windows = start_observation_between(filtered_df, exposure_min=35)
     assert len(windows) == 1
     assert abs(windows[0][0] - filtered_df.loc[5].MJD) < 1e-10
+
+
+def test_opportunity_windows_two_windows(filtered_df):
+    result = opportunity_windows(filtered_df, exposure_len=20.0)
+    assert len(result) == 2
+    assert list(result.columns) == [
+        "Object", "Obs_name", "Obs_code", "win_start", "win_end", "Alt_max", "V_min", "V_delta"
+    ]
+    assert (result["win_start"] < result["win_end"]).all()
+    assert (result["Alt_max"] == 30.0).all()
+
+
+def test_opportunity_windows_short_window_dropped(filtered_df):
+    # Window A spans 30 min; Window B spans 60 min.
+    # exposure_len=45 min is longer than A (dropped) but shorter than B (kept).
+    result = opportunity_windows(filtered_df, exposure_len=45.0)
+    assert len(result) == 1
+    assert result.iloc[0]["Obs_code"] == "500"

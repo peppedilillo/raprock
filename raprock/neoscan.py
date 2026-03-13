@@ -75,7 +75,13 @@ def get_ephemeris(
         "interval": str(total_minutes),
         "intunit": "minutes",
     }
-    return _parse_ephemeris(_post_ephemeris_request(payload))
+    return prepend_obj_columns(
+        prepend_obs_columns(
+            _parse_ephemeris(
+                _post_ephemeris_request(payload)),
+            observatory),
+        object_name
+    )
 
 
 def _parse_neocp_table(html: str) -> tuple[str]:
@@ -330,4 +336,14 @@ def _parse_ephemeris(eph_text: str) -> pd.DataFrame:
             "PA_err",
         ]
     )
+    return df
+
+
+def prepend_obs_columns(df: pd.DataFrame, obs: Observatory) -> pd.DataFrame:
+    df.insert(0, "Obs_code", obs.code)
+    df.insert(0, "Obs_name", obs.name)
+    return df
+
+def prepend_obj_columns(df: pd.DataFrame, obj_name: str) -> pd.DataFrame:
+    df.insert(0, "Object", obj_name)
     return df
