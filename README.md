@@ -13,7 +13,7 @@ uv sync
 
 ## Usage
 
-### Fetch an ephemeris
+### Fetch NEOScan objects and ephemeris tables
 
 ```python
 from raprock.neoscan import get_objects, get_ephemeris
@@ -89,8 +89,10 @@ dfs = {
     for obs in [LBT, VST, CASSINI]
 }
 
-all_windows = pd.concat([opportunity_windows(filter_pipe(d), EXPOSURE_MIN)
-                         for d in dfs.values()])
+all_windows = pd.concat(
+    [opportunity_windows(filter_pipe(d), EXPOSURE_MIN)
+    for d in dfs.values()]
+)
 ```
 
 ### Working with individual windows
