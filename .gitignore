@@ -215,5 +215,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# notebooks
+notebooks/
+
 # Claude
 CLAUDE.md
+
