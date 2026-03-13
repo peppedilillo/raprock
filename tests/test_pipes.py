@@ -29,15 +29,17 @@ def two_window_df():
     alts = [30.0] * 3 + [5.0, 5.0] + [30.0] * 5
     sun_elevs = [-20.0] * n
 
-    df = pd.DataFrame({
-        "MJD": mjds,
-        "Alt": alts,
-        "Sun_elev": sun_elevs,
-        "Object": ["C1C9Y25"] * n,
-        "Obs_name": ["Geocenter"] * n,
-        "Obs_code": ["500"] * n,
-        "Mag": [18.0 + i * 0.1 for i in range(n)],
-    })
+    df = pd.DataFrame(
+        {
+            "MJD": mjds,
+            "Alt": alts,
+            "Sun_elev": sun_elevs,
+            "Object": ["C1C9Y25"] * n,
+            "Obs_name": ["Geocenter"] * n,
+            "Obs_code": ["500"] * n,
+            "Mag": [18.0 + i * 0.1 for i in range(n)],
+        }
+    )
     return df
 
 
@@ -115,7 +117,14 @@ def test_opportunity_windows_two_windows(filtered_df):
     result = opportunity_windows(filtered_df, exposure_len=20.0)
     assert len(result) == 2
     assert list(result.columns) == [
-        "Object", "Obs_name", "Obs_code", "win_start", "win_end", "Alt_max", "V_min", "V_delta"
+        "Object",
+        "Obs_name",
+        "Obs_code",
+        "win_start",
+        "win_end",
+        "Alt_max",
+        "V_min",
+        "V_delta",
     ]
     assert (result["win_start"] < result["win_end"]).all()
     assert (result["Alt_max"] == 30.0).all()

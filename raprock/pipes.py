@@ -61,16 +61,18 @@ def opportunity_windows(df: pd.DataFrame, exposure_len: float) -> pd.DataFrame:
         win_end = window["MJD"].iloc[-1] - exposure_len * min2days
         if win_end <= win_start:
             continue
-        rows.append({
-            "Object":   window["Object"].iloc[0],
-            "Obs_name": window["Obs_name"].iloc[0],
-            "Obs_code": window["Obs_code"].iloc[0],
-            "win_start": win_start,
-            "win_end":   win_end,
-            "Alt_max":  window["Alt"].max(),
-            "V_min":    window["Mag"].min(),
-            "V_delta":  window["Mag"].max() - window["Mag"].min(),
-        })
+        rows.append(
+            {
+                "Object": window["Object"].iloc[0],
+                "Obs_name": window["Obs_name"].iloc[0],
+                "Obs_code": window["Obs_code"].iloc[0],
+                "win_start": win_start,
+                "win_end": win_end,
+                "Alt_max": window["Alt"].max(),
+                "V_min": window["Mag"].min(),
+                "V_delta": window["Mag"].max() - window["Mag"].min(),
+            }
+        )
     return pd.DataFrame(rows)
 
 

@@ -77,10 +77,9 @@ def get_ephemeris(
     }
     return prepend_obj_columns(
         prepend_obs_columns(
-            _parse_ephemeris(
-                _post_ephemeris_request(payload)),
-            observatory),
-        object_name
+            _parse_ephemeris(_post_ephemeris_request(payload)), observatory
+        ),
+        object_name,
     )
 
 
@@ -343,6 +342,7 @@ def prepend_obs_columns(df: pd.DataFrame, obs: Observatory) -> pd.DataFrame:
     df.insert(0, "Obs_code", obs.code)
     df.insert(0, "Obs_name", obs.name)
     return df
+
 
 def prepend_obj_columns(df: pd.DataFrame, obj_name: str) -> pd.DataFrame:
     df.insert(0, "Object", obj_name)
