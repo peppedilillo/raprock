@@ -49,6 +49,21 @@ def get_ephemeris(
 
     Returns:
         DataFrame with columns MJD, RA_deg, DEC_deg, rates, magnitudes, etc.
+
+    Raises:
+        ValueError: ``tstart`` or ``tend`` is not a valid ISO 8601 string.
+        requests.exceptions.Timeout: An HTTP request (challenge fetch, POST, or `.eph`
+            download) exceeds its timeout.
+        requests.exceptions.HTTPError: A non-2xx response is returned for the POST or
+            the `.eph` download.
+        NotImplementedError: The Anubis PoW challenge uses an algorithm other than
+            ``"fast"`` or ``"slow"``.
+        RuntimeError: The PoW cannot be solved within 10 000 000 iterations, or the
+            response HTML contains no `.eph` download link.
+        EphFormatError: The ephemeris file is missing its separator line or does not
+            contain exactly 24 column groups.
+        EphEmptyError: The parsed ephemeris table contains no numeric data (e.g. the
+            requested time window yields no observations).
     """
     if isinstance(tstart, str):
         tstart = datetime.fromisoformat(tstart)
